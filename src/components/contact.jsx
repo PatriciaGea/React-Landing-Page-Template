@@ -149,6 +149,28 @@ export const Contact = (props) => {
           </div>
         </div>
       </div>
+      <div id="location">
+        <div className="container">
+          <div className="section-title text-center">
+            <h2>Our Location</h2>
+            <p>
+              Brännkyrkagatan 48, Södermalm Stockholm ( central area -
+              Mariatorget subway station)
+            </p>
+          </div>
+          <div className="location-map-wrap">
+            <iframe
+              title="Tattoo Ink Studio Location"
+              src="https://www.google.com/maps?q=Br%C3%A4nnkyrkagatan%2048%2C%20S%C3%B6dermalm%20Stockholm%20(Mariatorget%20subway%20station)&output=embed"
+              width="100%"
+              height="360"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
       <div id="footer">
         <div className="container text-center">
           <p>

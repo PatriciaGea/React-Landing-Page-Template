@@ -1,10 +1,10 @@
 {
   "Header": {
-    "title": "Tattoo Ink Stockholm",
-    "paragraph": "Thinking about getting a tattoo in Stockholm? We can help you decide and book your next tattoo."
+    "title": "img/studio/logo-small-shadow.png",
+    "paragraph": "Thinking about getting a tattoo in Stockholm? We can help you!"
   },
   "About": {
-    "paragraph": "Tattoo Ink Stockholm is a custom tattoo studio with experienced artists and a welcoming atmosphere. We help you choose style, placement, and size for small, medium, and large tattoos.",
+    "paragraph": "We offer a variety of styles like geometric, dot work, realism black and gray, traditional american, neo traditional, illustration, thicker & thin lines. Small, medium or Big Tattoos.\nBook your tattoo with us!\nOur studio has new address, we moved from Frejgatan 58, Odenplan Vasastan, where we have been for 7 years - now you find us at: Mariatorget\nYou will find a nice atmosphere and can book your tattoo with Patricia Gea tattoo artist with 17 years tattooing experience.\nYou can book your tattoo ONLINE (at least 1 day in advance)\nFor DROP IN - WALK IN to get tattoo at same day or next day send a TXT MSG to patricia.gea@gmail.com and wait for the confirmation",
     "Why": [
       "Experienced tattoo artists",
       "Custom tattoo consultation",
@@ -152,8 +152,7 @@
     }
   ],
   "Contact": {
-    "address": "S:t Goransgatan 62, Kungsholmen, 112 33 Stockholm, Sweden",
-    "phone": "+46 72 923 1163",
+    "address": "Brännkyrkagatan 48, Södermalm Stockholm ( central area - Mariatorget subway station)",
     "email": "patricia@tattooink.se",
     "facebook": "https://www.facebook.com/Tattoo-Ink-Stockholm-2105816132802255/",
     "twitter": "https://www.instagram.com/tattooink.se",
@@ -163,7 +162,7 @@
     {
       "icon": "fa fa-map-marker",
       "title": "Central Location",
-      "text": "Studio located at S:t Goransgatan 62, Kungsholmen, close to Fridhemsplan station."
+      "text": "Studio located at Mariatorget, central Stockholm, easily accessible by public transport and close to popular areas."
     },
     {
       "icon": "fa fa-users",

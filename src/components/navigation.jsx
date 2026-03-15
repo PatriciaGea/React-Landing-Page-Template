@@ -17,9 +17,16 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <a className="navbar-brand page-scroll" href="#page-top">
-            Tattoo Ink Stockholm
-          </a>{" "}
+          <a className="navbar-brand page-scroll brand-wrap" href="#page-top">
+            <img
+              src="img/studio/letrat.webp"
+              className="navbar-studio-logo"
+              alt="Tattoo Ink Studio"
+            />
+            <span className="brand-title">Tattoo Ink Studio</span>
+          </a>
+
+        
         </div>
 
         <div
