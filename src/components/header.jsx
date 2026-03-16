@@ -13,7 +13,6 @@ export const Header = (props) => {
                     src={props.data.title}
                     alt="Tattoo Ink Stockholm"
                     className="header-title-image"
-                    style={{ marginTop: 40, marginBottom: -18 }}
                   />
                 ) : (
                   <h1>
@@ -21,7 +20,7 @@ export const Header = (props) => {
                     <span></span>
                   </h1>
                 )}
-                <p style={{ marginTop: -20, marginBottom: 10 }}>
+                <p className="header-main-text">
                   {props.data ? props.data.paragraph : "Loading"}
                 </p>
                 <a
@@ -31,7 +30,7 @@ export const Header = (props) => {
                   Book Your Tattoo
                 </a>{" "}<br />
                 <p className="header-address">
-                  <br></br>Brännkyrkagatan 48, Södermalm Stockholm ( central area -
+                  <br /><br />Brännkyrkagatan 48, Södermalm Stockholm ( central area -
                   Mariatorget subway station)
                 </p>
               </div>
