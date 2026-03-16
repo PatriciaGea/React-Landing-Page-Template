@@ -134,7 +134,7 @@ export const Contact = (props) => {
                     </a>
                   </li>
                   <li>
-                    <a href={props.data ? props.data.twitter : "/"}>
+                    <a href={props.data ? props.data.instagramStudio || props.data.twitter : "/"}>
                       <i className="fa fa-instagram"></i>
                     </a>
                   </li>
@@ -175,6 +175,16 @@ export const Contact = (props) => {
         <div className="container text-center">
           <p>
             &copy; {new Date().getFullYear()} Tattoo Ink Stockholm.
+          </p>
+          <p>
+            <a
+              href={props.data ? props.data.instagramStudio || props.data.twitter : "/"}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Tattoo Ink Studio Instagram"
+            >
+              <i className="fa fa-instagram"></i> @tattooink.se
+            </a>
           </p>
         </div>
       </div>
