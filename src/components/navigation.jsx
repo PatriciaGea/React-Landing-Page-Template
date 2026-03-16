@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const Navigation = (props) => {
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowNavbar(window.scrollY > 80);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return (
-    <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+    <nav
+      id="menu"
+      className={`navbar navbar-default navbar-fixed-top ${
+        showNavbar ? "nav-visible" : "nav-hidden"
+      }`}
+    >
       <div className="container">
         <div className="navbar-header">
           <button
@@ -35,18 +55,13 @@ export const Navigation = (props) => {
         >
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a href="#features" className="page-scroll">
-                Studio
-              </a>
-            </li>
-            <li>
               <a href="#about" className="page-scroll">
                 About
               </a>
             </li>
             <li>
               <a href="#services" className="page-scroll">
-                Services
+                Meet
               </a>
             </li>
             <li>

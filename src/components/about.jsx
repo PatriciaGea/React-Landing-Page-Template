@@ -1,41 +1,48 @@
 import React from "react";
 
 export const About = (props) => {
+  const locationText = "Mariatorget, Södermalm";
+
   return (
     <div id="about">
       <div className="container">
         <div className="row">
           <div className="col-xs-12 col-md-6">
             {" "}
-            <img src="img/about.jpg" className="img-responsive" alt="" />{" "}
+            <img src="img/studio/estudio.webp" className="img-responsive" alt="" />{" "}
           </div>
           <div className="col-xs-12 col-md-6">
             <div className="about-text">
-              <h2>About Tattoo Ink</h2>
+              <h2>About Tattoo Ink Studio</h2>
               {props.data
-                ? props.data.paragraph.split('\n').filter(l => l.trim()).map((line, i) => <p key={i}>{line}</p>)
+                ? props.data.paragraph
+                    .split("\n")
+                    .filter((l) => l.trim())
+                    .map((line, i) => {
+                      const hasLocationLink = line.includes(locationText);
+                      const isAddressLine = line.includes("Our studio has new address");
+
+                      if (!hasLocationLink) {
+                        return (
+                          <p key={i} className={isAddressLine ? "about-address-line" : ""}>
+                            {line}
+                          </p>
+                        );
+                      }
+
+                      const [before, after] = line.split(locationText);
+
+                      return (
+                        <p key={i} className={isAddressLine ? "about-address-line" : ""}>
+                          {before}
+                          <a href="#location" className="about-map-link">
+                            {locationText}
+                          </a>
+                          {after}
+                        </p>
+                      );
+                    })
                 : <p>loading...</p>}
-              <h3>Why Choose Tattoo Ink?</h3>
-              <div className="list-style">
-                <div className="col-lg-6 col-sm-6 col-xs-12">
-                  <ul>
-                    {props.data
-                      ? props.data.Why.map((d, i) => (
-                          <li key={`${d}-${i}`}>{d}</li>
-                        ))
-                      : "loading"}
-                  </ul>
-                </div>
-                <div className="col-lg-6 col-sm-6 col-xs-12">
-                  <ul>
-                    {props.data
-                      ? props.data.Why2.map((d, i) => (
-                          <li key={`${d}-${i}`}> {d}</li>
-                        ))
-                      : "loading"}
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </div>

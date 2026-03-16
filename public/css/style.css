@@ -75,6 +75,18 @@ hr {
   padding: 15px;
   transition: all 0.8s;
 }
+
+#menu.nav-hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+#menu.nav-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 #menu.navbar-default {
   background-color: #fff;
   border-color: rgba(231, 231, 231, 0);
@@ -262,11 +274,10 @@ a:focus,
 }
 
 .header-title-image {
-  width: auto;
-  max-width: 780px;
-  min-width: 360px;
+  width: 100%;
+  max-width: 680px;
   height: auto;
-  margin: 0 auto 0;
+  margin: 38px auto -16px;
   display: block;
 }
 
@@ -285,18 +296,25 @@ header .intro p.header-address {
   font-size: 17px;
   font-weight: 400;
   line-height: 1.5;
+  text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff;
 }
 header .intro p {
   color: #1a1a1a;
   font-size: 24px;
   font-weight: 700;
   line-height: 34px;
-  margin-top: 0;
+  margin-top: -8px;
   margin-bottom: 12px;
 }
+
+header .intro p.header-main-text {
+  margin-top: -22px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff;
+}
 header .intro-text {
-  padding-top: 140px;
-  padding-bottom: 50px;
+  padding-top: 47px;
+  padding-bottom: 58px;
   text-align: center;
 }
 
@@ -370,6 +388,21 @@ header .intro-text {
   line-height: 24px;
   margin: 30px 0;
 }
+
+#about p.about-address-line {
+  color: #000000;
+}
+
+#about .about-map-link {
+  color: #000000;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+#about .about-map-link:hover,
+#about .about-map-link:focus {
+  color: #000000;
+}
 /* Services Section */
 #services {
   padding: 100px 0;
@@ -412,6 +445,41 @@ header .intro-text {
 }
 #services .service-desc {
   margin-bottom: 40px;
+}
+
+#services .artists-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px 20px;
+  margin-top: 20px;
+}
+
+#services .artist-circle {
+  width: 240px;
+  height: 240px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: linear-gradient(to right, #111111 0%, #c0a16b 100%);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  #services .artist-circle {
+    width: 200px;
+    height: 200px;
+    font-size: 28px;
+  }
 }
 /* Portfolio Section */
 #portfolio {
@@ -700,6 +768,32 @@ label {
 
   #about img {
     margin: 50px 0;
+  }
+
+  header .intro-text {
+    padding-top: 36px;
+    padding-bottom: 20px;
+  }
+
+  .header-title-image {
+    max-width: 92vw;
+    margin-top: 22px;
+    margin-bottom: -12px;
+  }
+
+  header .intro p {
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: -6px;
+    margin-bottom: 10px;
+  }
+
+  header .intro p.header-main-text {
+    margin-top: -16px;
+  }
+
+  header .intro p.header-address {
+    font-size: 14px;
   }
 }
 
