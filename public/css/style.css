@@ -529,6 +529,14 @@ header .intro-text {
   opacity: 1;
 }
 
+#services .artist-section-rolando.hovering .artist-circle-image-default {
+  opacity: 0;
+}
+
+#services .artist-section-rolando.hovering .artist-circle-image-hover {
+  opacity: 1;
+}
+
 #services .artist-circle-image {
   position: absolute;
   width: 240px;

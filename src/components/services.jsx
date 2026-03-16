@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export const Services = () => {
-  const [isHovering, setIsHovering] = useState(false);
+  const [hoveredArtist, setHoveredArtist] = useState(null);
 
   const artists = [
     {
@@ -52,11 +52,13 @@ export const Services = () => {
               key={artist.name}
               className={`artist-section ${
                 artist.name === "Patricia Gea"
-                  ? `artist-section-patricia ${isHovering ? "hovering" : ""}`
+                  ? `artist-section-patricia ${hoveredArtist === "Patricia Gea" ? "hovering" : ""}`
+                  : artist.name === "Rolando Barrau"
+                  ? `artist-section-rolando ${hoveredArtist === "Rolando Barrau" ? "hovering" : ""}`
                   : ""
               }`}
-              onMouseEnter={() => artist.name === "Patricia Gea" && setIsHovering(true)}
-              onMouseLeave={() => artist.name === "Patricia Gea" && setIsHovering(false)}
+              onMouseEnter={() => setHoveredArtist(artist.name)}
+              onMouseLeave={() => setHoveredArtist(null)}
             >
               <div className="artist-main-circle" aria-hidden="true">
                 {artist.name === "Patricia Gea" && (
@@ -69,6 +71,20 @@ export const Services = () => {
                     <img
                       src="img/patricia/IMG_9305.webp"
                       alt="Patricia Gea - Hover"
+                      className="artist-circle-image artist-circle-image-hover"
+                    />
+                  </div>
+                )}
+                {artist.name === "Rolando Barrau" && (
+                  <div className="artist-circle-image-container">
+                    <img
+                      src="img/rolando/foto2.webp"
+                      alt="Rolando Barrau"
+                      className="artist-circle-image artist-circle-image-default"
+                    />
+                    <img
+                      src="img/rolando/IMG_1517.webp"
+                      alt="Rolando Barrau - Hover"
                       className="artist-circle-image artist-circle-image-hover"
                     />
                   </div>
