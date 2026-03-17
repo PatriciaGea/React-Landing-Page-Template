@@ -1,6 +1,20 @@
 import React, { useState } from "react";
 
 export const Services = () => {
+    // Função para abrir popup do tamanho da imagem
+    const openTattooPopup = (src) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = function () {
+        const width = img.naturalWidth || 800;
+        const height = img.naturalHeight || 800;
+        window.open(
+          src,
+          'tattooPopup',
+          `width=${width},height=${height},menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes`
+        );
+      };
+    };
   const [hoveredArtist, setHoveredArtist] = useState(null);
 
   const artists = [
@@ -141,19 +155,37 @@ export const Services = () => {
                   </p>
                 ) : null}
 
-                <div className="artist-social-links">
-                  <a href={artist.instagramUrl} target="_blank" rel="noreferrer" className="artist-link">
-                    <i className="fa fa-instagram" aria-hidden="true"></i>
-                  </a>
-                  <a href={artist.facebookUrl} target="_blank" rel="noreferrer" className="artist-link">
-                    <i className="fa fa-facebook" aria-hidden="true"></i>
-                  </a>
-                </div>
               </div>
               <div className="artist-photo-grid">
-                {Array.from({ length: 9 }).map((_, index) => (
-                  <div key={`${artist.name}-${index}`} className="artist-photo-circle"></div>
-                ))}
+                {artist.name === "Patricia Gea"
+                  ? [1,2,3,4,5,6,7,8,9].map((num) => (
+                      <div key={`patricia-tattoo-${num}`} className="artist-photo-circle" style={{cursor:'pointer'}} onClick={() => openTattooPopup(`img/patricia/tattoo/${num}.webp`)}>
+                        <img
+                          src={`img/patricia/tattoo/${num}.webp`}
+                          alt={`Patricia tattoo ${num}`}
+                          className="artist-photo-circle-image"
+                        />
+                      </div>
+                    ))
+                  : [
+                      "1.webp",
+                      "2.webp",
+                      "5.webp",
+                      "8.webp",
+                      "9.webp",
+                      "11.webp",
+                      "12.webp",
+                      "20.webp",
+                      "IMG_2679.webp"
+                    ].map((file) => (
+                      <div key={`rolando-tattoo-${file}`} className="artist-photo-circle" style={{cursor:'pointer'}} onClick={() => openTattooPopup(`img/rolando/tattoo/${file}`)}>
+                        <img
+                          src={`img/rolando/tattoo/${file}`}
+                          alt={`Rolando tattoo ${file}`}
+                          className="artist-photo-circle-image"
+                        />
+                      </div>
+                    ))}
               </div>
             </section>
           ))}

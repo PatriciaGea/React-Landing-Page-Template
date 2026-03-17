@@ -613,6 +613,8 @@ header .intro-text {
   text-decoration: none;
   line-height: 1;
   vertical-align: middle;
+  background: #111111 !important;
+  background-image: none !important;
 }
 
 #services .artist-social-links i.fa {
@@ -629,7 +631,8 @@ header .intro-text {
 
 #services .artist-social-links .artist-link:hover,
 #services .artist-social-links .artist-link:focus {
-  background: #ffffff;
+  background: #ffffff !important;
+  background-image: none !important;
   transform: scale(1.08);
 }
 
@@ -698,6 +701,19 @@ header .intro-text {
 }
 
 #services .artist-photo-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #services .artist-photo-circle img,
+  #services .artist-photo-circle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;

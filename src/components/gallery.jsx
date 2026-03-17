@@ -5,12 +5,6 @@ export const Gallery = (props) => {
   return (
     <div id="portfolio" className="text-center">
       <div className="container">
-        <div className="section-title">
-          <h2>Gallery</h2>
-          <p>
-            Selected works from our tattoo portfolio and studio sessions.
-          </p>
-        </div>
         <div className="row">
           <div className="portfolio-items">
             {props.data
