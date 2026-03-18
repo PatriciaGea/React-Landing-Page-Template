@@ -49,6 +49,8 @@ export const Services = () => {
       bookingUrl: "mailto:rolando.neto@gmail.com",
       contactEmail: "rolando.neto@gmail.com",
       instagramUrl: "https://www.instagram.com/tattooink.se",
+      instagramLabel: "Instagram @_barrau_",
+      instagramHandleUrl: "https://www.instagram.com/_barrau_/",
       facebookUrl: "https://www.facebook.com/Tattoo-Ink-Stockholm-2105816132802255/",
     },
   ];
@@ -119,6 +121,8 @@ export const Services = () => {
                 {artist.bookingUrl ? (
                   <div className="artist-booking-wrap">
                     <a
+                      id={artist.name === "Patricia Gea" ? "book-patricia" : undefined}
+                      style={artist.name === "Patricia Gea" ? { scrollMarginTop: '120px' } : undefined}
                       href={artist.bookingUrl}
                       target={artist.bookingUrl.startsWith("mailto:") ? undefined : "_blank"}
                       rel={artist.bookingUrl.startsWith("mailto:") ? undefined : "noreferrer"}
@@ -139,7 +143,13 @@ export const Services = () => {
                   </p>
                 ) : null}
 
-                {artist.instagramLabel ? (
+                {artist.instagramLabel && artist.name === "Rolando Barrau" ? (
+                  <p className="artist-desc artist-handle-line">
+                    <a href={artist.instagramHandleUrl} target="_blank" rel="noreferrer" className="artist-link">
+                      {artist.instagramLabel}
+                    </a>
+                  </p>
+                ) : artist.instagramLabel ? (
                   <p className="artist-desc artist-handle-line">
                     <a href={artist.instagramUrl} target="_blank" rel="noreferrer" className="artist-link">
                       {artist.instagramLabel}
@@ -156,7 +166,7 @@ export const Services = () => {
                 ) : null}
 
               </div>
-              <div className="artist-photo-grid">
+              <div className="artist-photo-grid" style={{ marginTop: '10px' }}>
                 {artist.name === "Patricia Gea"
                   ? [1,2,3,4,5,6,7,8,9].map((num) => (
                       <div key={`patricia-tattoo-${num}`} className="artist-photo-circle" style={{cursor:'pointer'}} onClick={() => openTattooPopup(`img/patricia/tattoo/${num}.webp`)}>

@@ -6,11 +6,13 @@ export const About = (props) => {
   const locationText = "Mariatorget, Södermalm";
   // Lista de imagens do carrossel
   const carouselImages = [
-    "2.webp",
+    "1.webp",
     "20e02106-95d5-4cf1-a83f-6334f3d04191.webp",
     "2a125940-48f1-4300-8fa5-9ce92bfac525.webp",
     "5E6DB836-A7FB-4F6A-AD80-125DF63A6DD0.webp",
     "718ff91a-5247-4edd-8065-24b9316d1676.webp",
+    "77.webp",
+    "771.webp",
     "eee.webp",
     "IMG_1518.webp",
     "IMG_1702.webp",
