@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 export const Navigation = () => {
   const [showNavbar, setShowNavbar] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef();
 
   const navItems = [
     { id: "about", label: "About" },
@@ -60,29 +62,42 @@ export const Navigation = () => {
     };
     onScroll();
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    // Fecha menu ao clicar fora
+    const handleClickOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
+  const handleNavLinkClick = () => setMenuOpen(false);
+  const handleToggle = () => setMenuOpen((open) => !open);
   return (
     <nav
       id="menu"
       className={`navbar navbar-default navbar-fixed-top ${
         showNavbar ? "nav-visible" : "nav-hidden"
       }`}
+      ref={navRef}
     >
       <div className="container">
         <div className="navbar-header">
           <button
             type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
+            className={`navbar-toggle${menuOpen ? '' : ' collapsed'}`}
+            aria-expanded={menuOpen}
+            aria-label="Toggle navigation"
+            onClick={handleToggle}
           >
-            {" "}
-            <span className="sr-only">Toggle navigation</span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
           </button>
           <a className="navbar-brand page-scroll brand-wrap" href="#page-top">
             <img
@@ -92,18 +107,15 @@ export const Navigation = () => {
             />
             <span className="brand-title">Tattoo Ink Studio</span>
           </a>
-
-        
         </div>
-
         <div
-          className="collapse navbar-collapse"
+          className={`navbar-collapse${menuOpen ? ' in' : ' collapse'}`}
           id="bs-example-navbar-collapse-1"
         >
           <ul className="nav navbar-nav navbar-right">
             {navItems.map((item) => (
               <li key={item.id} className={activeSection === item.id ? "active" : ""}>
-                <a href={`#${item.id}`} className="page-scroll">
+                <a href={`#${item.id}`} className="page-scroll" onClick={handleNavLinkClick}>
                   {item.label}
                 </a>
               </li>
@@ -117,6 +129,8 @@ export const Navigation = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
                 style={{ background: 'none', border: 'none', fontWeight: 600, fontSize: 15, textTransform: 'uppercase', color: '#555', margin: '9px 20px 0', padding: '8px 2px', cursor: 'pointer' }}
+                tabIndex={0}
+                onClick={e => e.stopPropagation()}
               >
                 Language <span className="caret"></span>
               </button>

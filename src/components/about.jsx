@@ -33,11 +33,13 @@ export const About = (props) => {
   const [offset, setOffset] = useState(0);
   const total = carouselImages.length;
   const windowWidth = useWindowWidth();
-  const isMobile = windowWidth <= 480;
-  const containerWidth = isMobile ? Math.min(windowWidth * 0.98, 340) : 550;
-  const imgHeight = isMobile ? 120 : 200;
-  const carouselHeight = isMobile ? 140 : 200;
-  const speed = 2;
+  const isMobile = windowWidth <= 600;
+  // Carrossel responsivo: largura máxima 98vw, altura proporcional
+  const containerWidth = isMobile ? Math.min(windowWidth * 0.98, 380) : 550;
+  const imgHeight = isMobile ? Math.max(Math.round(containerWidth * 0.38), 90) : 200;
+  const carouselHeight = imgHeight + 20;
+  // Velocidade do carrossel (px por frame)
+  const speed = isMobile ? 0.6 : 1;
   const animationRef = useRef();
 
   useEffect(() => {
@@ -93,8 +95,27 @@ export const About = (props) => {
                       );
                     })
                 : <p>loading...</p>}
-              <div style={{ marginTop: 24, width: containerWidth, overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', height: carouselHeight }}>
-                <div style={{ width: containerWidth, height: carouselHeight, position: 'relative', overflow: 'hidden' }}>
+              <div
+                style={{
+                  marginTop: 24,
+                  width: '100%',
+                  maxWidth: containerWidth,
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  height: carouselHeight,
+                }}
+              >
+                <div
+                  style={{
+                    width: '100%',
+                    maxWidth: containerWidth,
+                    height: carouselHeight,
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}
+                >
                   <div
                     style={{
                       display: 'flex',
@@ -113,6 +134,7 @@ export const About = (props) => {
                         style={{
                           height: imgHeight,
                           width: 'auto',
+                          maxWidth: isMobile ? Math.round(containerWidth * 0.7) : 220,
                           objectFit: 'contain',
                           borderRadius: isMobile ? 14 : 24,
                           marginRight: isMobile ? 6 : 10,
