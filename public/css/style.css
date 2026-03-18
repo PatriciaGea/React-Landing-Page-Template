@@ -22,13 +22,17 @@
     .footer-responsive {
       flex-direction: column;
       align-items: center;
-      text-align: center;
+      text-align: center !important;
       gap: 0;
+    }
+    .footer-col,
+    .footer-col * {
+      text-align: center !important;
     }
     .footer-col {
       min-width: 0;
       width: 100%;
-      text-align: center;
+      text-align: center !important;
       margin-bottom: 18px;
     }
   }
@@ -300,8 +304,10 @@ html {
   -webkit-font-smoothing: antialiased !important;
   color: #777;
   font-weight: 400;
-  width: 100% !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
   height: 100% !important;
+  overflow-x: hidden !important;
 }
 h2,
 h3,
@@ -365,6 +371,11 @@ hr {
 }
 /* Navigation */
 #menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
   padding: 15px;
   transition: all 0.8s;
 }

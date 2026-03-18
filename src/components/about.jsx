@@ -81,7 +81,7 @@ export const About = (props) => {
             <div className="about-text" style={isMobile ? { padding: 0, width: '100%', maxWidth: 340, margin: '0 auto', textAlign: 'center' } : { width: '100%' }}>
               {!isMobile && (
                 <>
-                  <h2 style={{ fontSize: 20, marginTop: 8, marginBottom: 10, textAlign: 'center' }}>
+                  <h2 style={{ fontSize: 32, marginTop: 8, marginBottom: 10, textAlign: 'center' }}>
                     About Tattoo Ink Studio
                   </h2>
                   <div style={{
