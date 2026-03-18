@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from "react";
 
-export const Navigation = (props) => {
+export const Navigation = () => {
   const [showNavbar, setShowNavbar] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
+
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "services", label: "Tattoo Artists" },
+    { id: "location", label: "Address" },
+    { id: "booking", label: "Contact" },
+    { id: "booking-artists-anchor", label: "Booking" },
+  ];
 
   useEffect(() => {
     const onScroll = () => {
       setShowNavbar(window.scrollY > 80);
+      // Detect section in view
+      const offsets = navItems.map((item) => {
+        const el = document.getElementById(item.id);
+        if (!el) return { id: item.id, offset: Infinity };
+        const rect = el.getBoundingClientRect();
+        return { id: item.id, offset: Math.abs(rect.top - 120) };
+      });
+      const min = offsets.reduce((a, b) => (a.offset < b.offset ? a : b));
+      setActiveSection(min.id);
     };
-
     onScroll();
     window.addEventListener("scroll", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -54,31 +68,13 @@ export const Navigation = (props) => {
           id="bs-example-navbar-collapse-1"
         >
           <ul className="nav navbar-nav navbar-right">
-            <li>
-              <a href="#about" className="page-scroll">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#services" className="page-scroll">
-                Tattoo Artists
-              </a>
-            </li>
-            <li>
-              <a href="#location" className="page-scroll">
-                Address
-              </a>
-            </li>
-            <li>
-              <a href="#booking" className="page-scroll">
-                Contact
-              </a>
-            </li>
-            <li>
-              <a href="#book-patricia" className="page-scroll">
-                Booking
-              </a>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.id} className={activeSection === item.id ? "active" : ""}>
+                <a href={`#${item.id}`} className="page-scroll">
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

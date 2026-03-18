@@ -1,3 +1,17 @@
+  /* About section artist anchor link */
+  .about-artist-link {
+    color: #c0a16b;
+    text-decoration: none;
+    border-bottom: 2px solid #c0a16b;
+    transition: border-bottom 0.2s, color 0.2s;
+    padding-bottom: 1px;
+  }
+  .about-artist-link:hover,
+  .about-artist-link:focus {
+    color: #111;
+    border-bottom: 2px solid #111;
+    text-decoration: none;
+  }
   color: #fff !important;
 body,
 html {

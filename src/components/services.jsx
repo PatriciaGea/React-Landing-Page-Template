@@ -62,7 +62,7 @@ export const Services = () => {
           <h2>Meet the Tattoo Artists</h2>
           <p>Professional experienced tattoo artists.</p>
         </div>
-        <div className="artists-sections">
+        <div id="booking-artists-anchor" style={{ scrollMarginTop: '180px' }} className="artists-sections">
           {artists.map((artist) => (
             <section
               key={artist.name}

@@ -58,21 +58,25 @@ export const About = (props) => {
                     .map((line, i) => {
                       const hasLocationLink = line.includes(locationText);
                       const isAddressLine = line.includes("Our studio has new address");
+                      // Adiciona link âncora para "Tattoo Artists" nos nomes
+                      const withArtistLinks = line
+                        .replace(/Patricia Gea/g, '<a href="#services" class="about-artist-link">Patricia Gea</a>')
+                        .replace(/Rolando Barrau/g, '<a href="#services" class="about-artist-link">Rolando Barrau</a>');
                       if (!hasLocationLink) {
                         return (
                           <p key={i} className={isAddressLine ? "about-address-line" : ""}>
-                            {line}
+                            {isAddressLine ? <b dangerouslySetInnerHTML={{ __html: withArtistLinks }} /> : <span dangerouslySetInnerHTML={{ __html: withArtistLinks }} />}
                           </p>
                         );
                       }
                       const [before, after] = line.split(locationText);
                       return (
                         <p key={i} className={isAddressLine ? "about-address-line" : ""}>
-                          {before}
+                          {isAddressLine ? <b>{before}</b> : before}
                           <a href="#location" className="about-map-link">
                             {locationText}
                           </a>
-                          {after}
+                          {isAddressLine ? <b>{after}</b> : after}
                         </p>
                       );
                     })

@@ -116,7 +116,7 @@ export const Contact = (props) => {
       <div id="location">
         <div className="container">
           <div className="section-title text-center">
-            <h2>Our Location</h2>
+            <h2 style={{ color: '#fff' }}>Our Location</h2>
             <div style={{ fontWeight: 400, color: '#111', fontSize: '13px', marginBottom: 2 }}>(Bookings only)</div>
             <p>
               Brännkyrkagatan 48, Södermalm Stockholm ( central area -
