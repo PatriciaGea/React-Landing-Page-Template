@@ -54,7 +54,7 @@ export const About = (props) => {
     }
     animationRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationRef.current);
-  }, [total, imgHeight]);
+  }, [total, imgHeight, speed]);
 
   return (
     <div id="about">

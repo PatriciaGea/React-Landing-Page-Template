@@ -6,13 +6,13 @@ export const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef();
 
-  const navItems = [
+  const navItems = React.useMemo(() => [
     { id: "about", label: "About" },
     { id: "services", label: "Tattoo Artists" },
     { id: "location", label: "Address" },
     { id: "booking", label: "Contact" },
     { id: "booking-artists-anchor", label: "Booking" },
-  ];
+  ], []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -40,7 +40,7 @@ export const Navigation = () => {
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [navItems]);
 
   const handleNavLinkClick = () => setMenuOpen(false);
   const handleToggle = () => setMenuOpen((open) => !open);
