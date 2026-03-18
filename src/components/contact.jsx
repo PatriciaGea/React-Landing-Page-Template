@@ -38,9 +38,9 @@ export const Contact = (props) => {
     <div>
       {/* Booking Form Section */}
       <div id="booking">
-        <div className="container" style={{ padding: '48px 0' }}>
-          <div className="col-md-8 col-md-offset-2">
-            <div className="row">
+        <div className="container" style={{ padding: '48px 0', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ width: '100%', maxWidth: 340, minWidth: 0, margin: '0 auto' }}>
+            <div className="row" style={{ margin: 0 }}>
               <div className="section-title text-center">
                 <div style={{ paddingTop: '48px' }}>
                   <h2>Send message to the studio</h2>
@@ -49,9 +49,9 @@ export const Contact = (props) => {
                   </div>
                 </div>
               </div>
-              <form name="sentMessage" validate onSubmit={handleSubmit} encType="multipart/form-data">
-                <div className="row">
-                  <div className="col-md-6">
+              <form name="sentMessage" validate onSubmit={handleSubmit} encType="multipart/form-data" style={{ width: '100%' }}>
+                <div className="row" style={{ margin: 0 }}>
+                  <div className="col-md-6" style={{ padding: 0 }}>
                     <div className="form-group">
                       <input
                         type="text"
@@ -65,7 +65,7 @@ export const Contact = (props) => {
                       <p className="help-block text-danger"></p>
                     </div>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6" style={{ padding: 0 }}>
                     <div className="form-group">
                       <input
                         type="email"
@@ -152,27 +152,23 @@ export const Contact = (props) => {
       </div>
       {/* Social media section agora após o mapa, com gradiente e copyright */}
       <div className="contact-social-gradient">
-        <div className="container" style={{padding: '32px 0 8px 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'flex-start', gap: 32}}>
-            <div style={{marginBottom: '30px'}}></div>
-          <div style={{flex: 1, minWidth: 220, color: '#111', fontSize: 16, textAlign: 'left'}}>
-            <div style={{fontWeight: 700, marginBottom: 10}}>Studio Tattoo Ink Project:</div>
-            <div style={{marginBottom: 6}}>Instagram SWE: <a href="https://www.instagram.com/@tattooink.se" target="_blank" rel="noreferrer" className="footer-link">@tattooink.se</a></div>
-            <div style={{marginBottom: 6}}>Facebook: <a href="https://www.facebook.com/p/Tattoo-Ink-Stockholm-100031897282405/" target="_blank" rel="noreferrer" className="footer-link">Tattoo Ink Stockholm</a></div>
-            <div style={{marginBottom: 6}}>Instagram BR: <a href="https://www.instagram.com/@estudiotattooink" target="_blank" rel="noreferrer" className="footer-link">@estudiotattooink</a></div>
-            <div style={{marginBottom: '30px'}}></div>
+        <div className="container footer-responsive">
+          <div className="footer-col">
+            <div style={{ fontWeight: 700, marginBottom: 10 }}>Studio Tattoo Ink Project:</div>
+            <div style={{ marginBottom: 6 }}>Instagram SWE: <a href="https://www.instagram.com/@tattooink.se" target="_blank" rel="noreferrer" className="footer-link">@tattooink.se</a></div>
+            <div style={{ marginBottom: 6 }}>Facebook: <a href="https://www.facebook.com/p/Tattoo-Ink-Stockholm-100031897282405/" target="_blank" rel="noreferrer" className="footer-link">Tattoo Ink Stockholm</a></div>
+            <div style={{ marginBottom: 6 }}>Instagram BR: <a href="https://www.instagram.com/@estudiotattooink" target="_blank" rel="noreferrer" className="footer-link">@estudiotattooink</a></div>
           </div>
-          <div style={{flex: 1, minWidth: 120}}></div>
-                  <div style={{flex: 1, minWidth: 220, color: '#111', fontSize: 16, textAlign: 'left'}}>
-                    <div style={{fontWeight: 700, marginBottom: 10}}>Patricia Gea</div>
-                    <div style={{marginBottom: 6}}>Gea Tattoo ink AB</div>
-                    <div style={{marginBottom: 6}}>
-                      LinkedIn: <a href="https://www.linkedin.com/in/patriciageafrontend/" target="_blank" rel="noreferrer" className="footer-link">patriciageafrontend</a>
-                    </div>
-                    <div style={{marginBottom: 6}}>
-                      GitHub: <a href="https://github.com/PatriciaGea" target="_blank" rel="noreferrer" className="footer-link">PatriciaGea</a>
-                    </div>
-                    <div style={{marginBottom: '30px'}}></div>
-                  </div>
+          <div className="footer-col">
+            <div style={{ fontWeight: 700, marginBottom: 10 }}>Patricia Gea</div>
+            <div style={{ marginBottom: 6 }}>Gea Tattoo ink AB</div>
+            <div style={{ marginBottom: 6 }}>
+              LinkedIn: <a href="https://www.linkedin.com/in/patriciageafrontend/" target="_blank" rel="noreferrer" className="footer-link">patriciageafrontend</a>
+            </div>
+            <div style={{ marginBottom: 6 }}>
+              GitHub: <a href="https://github.com/PatriciaGea" target="_blank" rel="noreferrer" className="footer-link">PatriciaGea</a>
+            </div>
+          </div>
         </div>
       </div>
       {/* Rodapé removido, copyright já incluso na seção de social media */}

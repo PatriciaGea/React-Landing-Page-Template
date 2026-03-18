@@ -59,13 +59,40 @@ export const About = (props) => {
   return (
     <div id="about">
       <div className="container">
-        <div className="row" style={isMobile ? { flexDirection: 'column', alignItems: 'center', padding: '0 2vw' } : {}}>
-          <div className="col-xs-12 col-md-6" style={isMobile ? { width: '100%', maxWidth: '100%', padding: 0, marginBottom: 18 } : {}}>
-            <img src="img/studio/estudio.webp" className="img-responsive" alt="" style={isMobile ? { width: '98vw', maxWidth: 340, margin: '0 auto 16px auto', display: 'block', borderRadius: 18 } : {}} />
+        <div className="row" style={isMobile ? { flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', margin: 0, padding: 0 } : {}}>
+          {isMobile && (
+            <div style={{ width: '100%', textAlign: 'center', marginTop: 12, marginBottom: 12 }}>
+              <h2 style={{ fontSize: 20, margin: 0, textAlign: 'center', width: '100%' }}>
+                About Tattoo Ink Studio
+              </h2>
+              <div style={{
+                margin: '8px auto 0',
+                width: 60,
+                height: 4,
+                background: 'linear-gradient(to right, #c0a16b 0%, #111111 100%)',
+                borderRadius: 2
+              }} />
+            </div>
+          )}
+          <div className="col-xs-12 col-md-6" style={isMobile ? { width: '100%', maxWidth: 380, margin: '0 auto 18px auto', padding: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center' } : { display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: 0, marginBottom: 0 }}>
+            <img src="img/studio/estudio.webp" className="img-responsive" alt="" style={isMobile ? { width: '98vw', maxWidth: 340, margin: '0 auto 16px auto', display: 'block', borderRadius: 18 } : { margin: '0 auto 16px auto', display: 'block', borderRadius: 18 }} />
           </div>
-          <div className="col-xs-12 col-md-6" style={isMobile ? { width: '100%', maxWidth: '100%', padding: 0 } : {}}>
-            <div className="about-text" style={isMobile ? { padding: '0 2vw' } : {}}>
-              <h2 style={isMobile ? { fontSize: 20, marginTop: 8, marginBottom: 10, textAlign: 'center' } : {}}>About Tattoo Ink Studio</h2>
+          <div className="col-xs-12 col-md-6" style={isMobile ? { width: '100%', maxWidth: 380, margin: '0 auto', padding: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center' } : { display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: 0 }}>
+            <div className="about-text" style={isMobile ? { padding: 0, width: '100%', maxWidth: 340, margin: '0 auto', textAlign: 'center' } : { width: '100%' }}>
+              {!isMobile && (
+                <>
+                  <h2 style={{ fontSize: 20, marginTop: 8, marginBottom: 10, textAlign: 'center' }}>
+                    About Tattoo Ink Studio
+                  </h2>
+                  <div style={{
+                    margin: '8px auto 0',
+                    width: 60,
+                    height: 4,
+                    background: 'linear-gradient(to right, #c0a16b 0%, #111111 100%)',
+                    borderRadius: 2
+                  }} />
+                </>
+              )}
               {props.data
                 ? props.data.paragraph
                     .split("\n")
@@ -98,8 +125,12 @@ export const About = (props) => {
               <div
                 style={{
                   marginTop: 24,
-                  width: '100%',
-                  maxWidth: containerWidth,
+                  width: isMobile ? '92vw' : '100%',
+                  maxWidth: isMobile ? 320 : containerWidth,
+                  marginLeft: isMobile ? 'auto' : undefined,
+                  marginRight: isMobile ? 'auto' : undefined,
+                  paddingLeft: isMobile ? 0 : undefined,
+                  paddingRight: isMobile ? 0 : undefined,
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
