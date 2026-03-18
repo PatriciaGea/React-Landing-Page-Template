@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
+import { LanguageProvider } from "./components/LanguageContext";
 import { Header } from "./components/header";
 import { About } from "./components/about";
 import { Services } from "./components/services";
@@ -23,7 +24,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <LanguageProvider>
       <Navigation />
       <Header data={landingPageData.Header} />
       <About data={landingPageData.About} />
@@ -31,7 +32,7 @@ const App = () => {
       {/* <Testimonials data={landingPageData.Testimonials} /> */}
       {/* <Team data={landingPageData.Team} /> */}
       <Contact data={landingPageData.Contact} />
-    </div>
+    </LanguageProvider>
   );
 };
 

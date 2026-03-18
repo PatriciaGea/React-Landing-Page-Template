@@ -11,6 +11,39 @@ export const Navigation = () => {
     { id: "booking", label: "Contact" },
     { id: "booking-artists-anchor", label: "Booking" },
   ];
+    const [lang, setLang] = useState("en");
+    const LANGS = [
+      { code: "en", label: "English" },
+      { code: "pt", label: "Português" },
+      { code: "es", label: "Español" },
+      { code: "fr", label: "Français" },
+      { code: "de", label: "Deutsch" },
+      { code: "sv", label: "Svenska" },
+      { code: "fi", label: "Suomi" },
+    ];
+    const TRANSLATIONS = {
+      en: {
+        nav: ["About", "Tattoo Artists", "Address", "Contact", "Booking"],
+      },
+      pt: {
+        nav: ["Sobre", "Tatuadores", "Endereço", "Contato", "Agendamento"],
+      },
+      es: {
+        nav: ["Sobre", "Tatuadores", "Dirección", "Contacto", "Reservas"],
+      },
+      fr: {
+        nav: ["À propos", "Tatoueurs", "Adresse", "Contact", "Réservation"],
+      },
+      de: {
+        nav: ["Über", "Tätowierer", "Adresse", "Kontakt", "Buchung"],
+      },
+      sv: {
+        nav: ["Om", "Tatuerare", "Adress", "Kontakt", "Boka"],
+      },
+      fi: {
+        nav: ["Tietoa", "Tatuoijat", "Osoite", "Yhteys", "Varaus"],
+      },
+    };
 
   useEffect(() => {
     const onScroll = () => {
@@ -75,6 +108,28 @@ export const Navigation = () => {
                 </a>
               </li>
             ))}
+            <li className="dropdown" style={{ position: 'relative' }}>
+              <button
+                className="btn btn-default dropdown-toggle"
+                type="button"
+                id="languageDropdown"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                style={{ background: 'none', border: 'none', fontWeight: 600, fontSize: 15, textTransform: 'uppercase', color: '#555', margin: '9px 20px 0', padding: '8px 2px', cursor: 'pointer' }}
+              >
+                Language <span className="caret"></span>
+              </button>
+              <ul className="dropdown-menu" aria-labelledby="languageDropdown" style={{ minWidth: 120, left: 'auto', right: 0 }}>
+                <li><a href="#" style={{ color: '#c0a16b' }}>English</a></li>
+                <li><a href="#" style={{ color: '#c0a16b' }}>Português</a></li>
+                <li><a href="#" style={{ color: '#c0a16b' }}>Español</a></li>
+                <li><a href="#" style={{ color: '#c0a16b' }}>Français</a></li>
+                <li><a href="#" style={{ color: '#c0a16b' }}>Deutsch</a></li>
+                <li><a href="#" style={{ color: '#c0a16b' }}>Svenska</a></li>
+                <li><a href="#" style={{ color: '#c0a16b' }}>Suomi</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>

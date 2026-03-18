@@ -1,10 +1,21 @@
 
 import React, { useState, useEffect, useRef } from "react";
 
+// Hook para detectar largura da tela
+function useWindowWidth() {
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return width;
+}
+
+
 
 export const About = (props) => {
   const locationText = "Mariatorget, Södermalm";
-  // Lista de imagens do carrossel
   const carouselImages = [
     "1.webp",
     "20e02106-95d5-4cf1-a83f-6334f3d04191.webp",
@@ -21,16 +32,18 @@ export const About = (props) => {
   ];
   const [offset, setOffset] = useState(0);
   const total = carouselImages.length;
-  const containerWidth = 550;
-  const imgHeight = 200;
-  const speed = 2; // px por frame (mais rápido)
+  const windowWidth = useWindowWidth();
+  const isMobile = windowWidth <= 480;
+  const containerWidth = isMobile ? Math.min(windowWidth * 0.98, 340) : 550;
+  const imgHeight = isMobile ? 120 : 200;
+  const carouselHeight = isMobile ? 140 : 200;
+  const speed = 2;
   const animationRef = useRef();
 
-  // Movimento contínuo
   useEffect(() => {
     function animate() {
       setOffset((prev) => {
-        const totalWidth = total * imgHeight * 2; // largura total (proporcional)
+        const totalWidth = total * imgHeight * 2;
         let next = prev + speed;
         if (next > totalWidth) next = 0;
         return next;
@@ -39,18 +52,18 @@ export const About = (props) => {
     }
     animationRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationRef.current);
-  }, [total]);
+  }, [total, imgHeight]);
 
   return (
     <div id="about">
       <div className="container">
-        <div className="row">
-          <div className="col-xs-12 col-md-6">
-            <img src="img/studio/estudio.webp" className="img-responsive" alt="" />
+        <div className="row" style={isMobile ? { flexDirection: 'column', alignItems: 'center', padding: '0 2vw' } : {}}>
+          <div className="col-xs-12 col-md-6" style={isMobile ? { width: '100%', maxWidth: '100%', padding: 0, marginBottom: 18 } : {}}>
+            <img src="img/studio/estudio.webp" className="img-responsive" alt="" style={isMobile ? { width: '98vw', maxWidth: 340, margin: '0 auto 16px auto', display: 'block', borderRadius: 18 } : {}} />
           </div>
-          <div className="col-xs-12 col-md-6">
-            <div className="about-text">
-              <h2>About Tattoo Ink Studio</h2>
+          <div className="col-xs-12 col-md-6" style={isMobile ? { width: '100%', maxWidth: '100%', padding: 0 } : {}}>
+            <div className="about-text" style={isMobile ? { padding: '0 2vw' } : {}}>
+              <h2 style={isMobile ? { fontSize: 20, marginTop: 8, marginBottom: 10, textAlign: 'center' } : {}}>About Tattoo Ink Studio</h2>
               {props.data
                 ? props.data.paragraph
                     .split("\n")
@@ -58,22 +71,21 @@ export const About = (props) => {
                     .map((line, i) => {
                       const hasLocationLink = line.includes(locationText);
                       const isAddressLine = line.includes("Our studio has new address");
-                      // Adiciona link âncora para "Tattoo Artists" nos nomes
                       const withArtistLinks = line
                         .replace(/Patricia Gea/g, '<a href="#services" class="about-artist-link">Patricia Gea</a>')
                         .replace(/Rolando Barrau/g, '<a href="#services" class="about-artist-link">Rolando Barrau</a>');
                       if (!hasLocationLink) {
                         return (
-                          <p key={i} className={isAddressLine ? "about-address-line" : ""}>
+                          <p key={i} className={isAddressLine ? "about-address-line" : ""} style={isMobile ? { fontSize: 14, textAlign: 'center' } : {}}>
                             {isAddressLine ? <b dangerouslySetInnerHTML={{ __html: withArtistLinks }} /> : <span dangerouslySetInnerHTML={{ __html: withArtistLinks }} />}
                           </p>
                         );
                       }
                       const [before, after] = line.split(locationText);
                       return (
-                        <p key={i} className={isAddressLine ? "about-address-line" : ""}>
+                        <p key={i} className={isAddressLine ? "about-address-line" : ""} style={isMobile ? { fontSize: 14, textAlign: 'center' } : {}}>
                           {isAddressLine ? <b>{before}</b> : before}
-                          <a href="#location" className="about-map-link">
+                          <a href="#location" className="about-map-link" style={isMobile ? { fontSize: 15 } : {}}>
                             {locationText}
                           </a>
                           {isAddressLine ? <b>{after}</b> : after}
@@ -81,20 +93,18 @@ export const About = (props) => {
                       );
                     })
                 : <p>loading...</p>}
-              {/* Carrossel animado contínuo, imagens proporcionais, sem destaque */}
-              <div style={{ marginTop: 24, width: 550, overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', height: 200 }}>
-                <div style={{ width: 550, height: 200, position: 'relative', overflow: 'hidden' }}>
+              <div style={{ marginTop: 24, width: containerWidth, overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', height: carouselHeight }}>
+                <div style={{ width: containerWidth, height: carouselHeight, position: 'relative', overflow: 'hidden' }}>
                   <div
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      height: 200,
+                      height: carouselHeight,
                       transform: `translateX(-${offset}px)`,
                       transition: 'none',
                       willChange: 'transform',
                     }}
                   >
-                    {/* Duplicar as imagens para efeito looping */}
                     {[...carouselImages, ...carouselImages].map((img, idx) => (
                       <img
                         key={img + idx}
@@ -104,8 +114,8 @@ export const About = (props) => {
                           height: imgHeight,
                           width: 'auto',
                           objectFit: 'contain',
-                          borderRadius: '24px', // cantos bem arredondados
-                          marginRight: 10,
+                          borderRadius: isMobile ? 14 : 24,
+                          marginRight: isMobile ? 6 : 10,
                           opacity: 1,
                           boxShadow: 'none',
                           background: '#fff',

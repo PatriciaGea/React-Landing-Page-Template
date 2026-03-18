@@ -1,3 +1,196 @@
+  @media (max-width: 480px) {
+    #menu .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    #menu .navbar-header,
+    #menu .navbar-brand.brand-wrap {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+    #menu .navbar-brand {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      gap: 6px;
+    }
+    #menu .brand-title {
+      text-align: center;
+      width: 100%;
+    }
+    #menu .navbar-toggle {
+      float: right;
+      margin-top: 6px;
+    }
+    #menu .navbar-nav {
+      width: 100%;
+      text-align: center;
+    }
+    #menu .navbar-nav > li {
+      float: none;
+      display: inline-block;
+      margin: 0 2px;
+    }
+    #menu .dropdown-menu {
+      left: 50% !important;
+      transform: translateX(-50%);
+      right: auto !important;
+      text-align: left;
+    }
+    #about,
+    #services,
+    #testimonials,
+    #team,
+    #contact,
+    #footer {
+      text-align: center;
+    }
+    #about img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #services .artist-section {
+      align-items: center;
+      text-align: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    #services .artist-desc-wrap {
+      align-items: center;
+      text-align: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    #services .artist-photo-grid {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #contact .section-title,
+    #contact h2,
+    #contact h3 {
+      text-align: center;
+    }
+    #footer p {
+      text-align: center;
+    }
+  }
+  @media (max-width: 480px) {
+    #menu {
+      padding: 7px 0 7px 0;
+    }
+    #menu .navbar-header {
+      padding-left: 6px;
+    }
+    #menu .navbar-studio-logo {
+      height: 38px;
+      width: 38px;
+      margin: 2px 6px 0 0;
+    }
+    #menu .brand-title {
+      font-size: 13px;
+    }
+    #menu.navbar-default .navbar-nav > li > a {
+      font-size: 13px;
+      margin: 6px 8px 0;
+      padding: 6px 2px;
+    }
+    #menu .dropdown-menu {
+      min-width: 90px !important;
+      font-size: 13px;
+      right: 0;
+      left: auto;
+    }
+    .navbar-toggle {
+      margin-right: 6px;
+      padding: 6px 8px;
+    }
+    #about img {
+      width: 98vw;
+      max-width: 340px;
+      margin: 18px 0 18px 0;
+    }
+    #about h2 {
+      font-size: 22px;
+    }
+    #about h3 {
+      font-size: 16px;
+    }
+    #about p, #about li {
+      font-size: 14px;
+    }
+    #services {
+      padding: 44px 0 44px 0;
+    }
+    #services .artist-main-circle {
+      width: 120px;
+      height: 120px;
+    }
+    #services .artist-section-title {
+      font-size: 17px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    #services .artist-desc-wrap {
+      min-height: auto;
+      max-width: 98vw;
+      padding: 0 2vw;
+    }
+    #services .artist-desc {
+      font-size: 13px;
+      margin: 4px auto 0;
+    }
+    #services .artist-photo-grid {
+      width: min(98vw, 220px);
+      gap: 6px;
+    }
+    #services .artist-photo-circle img,
+    #services .artist-photo-circle-image {
+      border-width: 1px;
+    }
+    #services .artist-social-links {
+      gap: 8px;
+    }
+    #services .artist-social-links .artist-link {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      min-height: 32px;
+      max-width: 32px;
+      max-height: 32px;
+      font-size: 15px;
+      padding: 0;
+    }
+    #services .artist-social-links i.fa {
+      font-size: 13px;
+    }
+    #contact {
+      padding: 44px 0 30px 0;
+    }
+    #contact h2 {
+      font-size: 20px;
+    }
+    #contact h3 {
+      font-size: 15px;
+      margin-top: 30px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+    }
+    #contact .form-control {
+      font-size: 13px;
+      padding: 4px 8px;
+    }
+    #footer {
+      padding: 14px 0;
+    }
+    #footer p {
+      font-size: 12px;
+    }
+  }
   /* About section artist anchor link */
   .about-artist-link {
     color: #c0a16b;
