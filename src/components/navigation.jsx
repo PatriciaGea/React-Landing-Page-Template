@@ -86,20 +86,21 @@ export const Navigation = () => {
       ref={navRef}
     >
       <div className="container">
-        <div className="navbar-header">
+        <div className="navbar-header" style={{display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', width: '100%'}}>
           <button
             type="button"
             className={`navbar-toggle${menuOpen ? '' : ' collapsed'}`}
             aria-expanded={menuOpen}
             aria-label="Toggle navigation"
             onClick={handleToggle}
+            style={{marginLeft: 'auto'}}
           >
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand page-scroll brand-wrap" href="#page-top">
+          <a className="navbar-brand page-scroll brand-wrap" href="#page-top" style={{marginRight: 'auto'}}>
             <img
               src="img/studio/letrat.webp"
               className="navbar-studio-logo"
