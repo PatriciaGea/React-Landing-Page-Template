@@ -163,10 +163,9 @@ export const About = (props) => {
                         src={`img/studio/fotos/${img}`}
                         alt={`Slide ${idx + 1}`}
                         style={{
+                          width: isMobile ? Math.round(containerWidth * 0.7) : 220,
                           height: imgHeight,
-                          width: 'auto',
-                          maxWidth: isMobile ? Math.round(containerWidth * 0.7) : 220,
-                          objectFit: 'contain',
+                          objectFit: 'cover',
                           borderRadius: isMobile ? 14 : 24,
                           marginRight: isMobile ? 6 : 10,
                           opacity: 1,

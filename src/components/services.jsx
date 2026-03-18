@@ -59,7 +59,7 @@ export const Services = () => {
     <div id="services" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Meet the Tattoo Artists</h2>
+          <h2 style={{ fontSize: window.innerWidth > 600 ? 36 : 22 }}>Meet the Tattoo Artists</h2>
           <p>Professional experienced tattoo artists.</p>
         </div>
         <div id="booking-artists-anchor" style={{ scrollMarginTop: '180px' }} className="artists-sections">
