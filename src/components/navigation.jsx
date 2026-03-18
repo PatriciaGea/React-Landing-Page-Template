@@ -88,30 +88,7 @@ export const Navigation = () => {
                 </a>
               </li>
             ))}
-            <li className="dropdown" style={{ position: 'relative' }}>
-              <button
-                className="btn btn-default dropdown-toggle"
-                type="button"
-                id="languageDropdown"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                style={{ background: 'none', border: 'none', fontWeight: 600, fontSize: 15, textTransform: 'uppercase', color: '#555', margin: '9px 20px 0', padding: '8px 2px', cursor: 'pointer' }}
-                tabIndex={0}
-                onClick={e => e.stopPropagation()}
-              >
-                Language <span className="caret"></span>
-              </button>
-              <ul className="dropdown-menu" aria-labelledby="languageDropdown" style={{ minWidth: 120, left: 'auto', right: 0 }}>
-                <li><button type="button" style={{ color: '#c0a16b', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>English</button></li>
-                <li><button type="button" style={{ color: '#c0a16b', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>Português</button></li>
-                <li><button type="button" style={{ color: '#c0a16b', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>Español</button></li>
-                <li><button type="button" style={{ color: '#c0a16b', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>Français</button></li>
-                <li><button type="button" style={{ color: '#c0a16b', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>Deutsch</button></li>
-                <li><button type="button" style={{ color: '#c0a16b', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>Svenska</button></li>
-                <li><button type="button" style={{ color: '#c0a16b', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>Suomi</button></li>
-              </ul>
-            </li>
+
           </ul>
         </div>
       </div>
