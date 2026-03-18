@@ -96,7 +96,7 @@ export const Services = () => {
                     <img
                       src="img/rolando/foto2.webp"
                       alt="Rolando Barrau"
-                      className="artist-circle-image artist-circle-image-default"
+                      className="artist-circle-image artist-circle-image-default artist-circle-image-rolando"
                     />
                     <img
                       src="img/rolando/IMG_1517.webp"

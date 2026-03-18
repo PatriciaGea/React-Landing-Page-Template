@@ -1,3 +1,7 @@
+  /* Ajuste para descer a imagem principal do círculo do Rolando */
+  .artist-circle-image-rolando {
+    margin-top: 18px;
+  }
   /* Footer responsive columns */
   .footer-responsive {
     display: flex;
