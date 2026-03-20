@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { TattooMobileGallery } from "./TattooMobileGallery";
 
 export const Services = () => {
     // Função para abrir popup do tamanho da imagem
@@ -166,37 +167,50 @@ export const Services = () => {
                 ) : null}
 
               </div>
-              <div className="artist-photo-grid" style={{ marginTop: '10px' }}>
-                {artist.name === "Patricia Gea"
-                  ? [1,2,3,4,5,6,7,8,9].map((num) => (
-                      <div key={`patricia-tattoo-${num}`} className="artist-photo-circle" style={{cursor:'pointer'}} onClick={() => openTattooPopup(`img/patricia/tattoo/${num}.webp`)}>
-                        <img
-                          src={`img/patricia/tattoo/${num}.webp`}
-                          alt={`Patricia tattoo ${num}`}
-                          className="artist-photo-circle-image"
-                        />
-                      </div>
-                    ))
-                  : [
-                      "1.webp",
-                      "2.webp",
-                      "5.webp",
-                      "8.webp",
-                      "9.webp",
-                      "11.webp",
-                      "12.webp",
-                      "20.webp",
-                      "IMG_2679.webp"
-                    ].map((file) => (
-                      <div key={`rolando-tattoo-${file}`} className="artist-photo-circle" style={{cursor:'pointer'}} onClick={() => openTattooPopup(`img/rolando/tattoo/${file}`)}>
-                        <img
-                          src={`img/rolando/tattoo/${file}`}
-                          alt={`Rolando tattoo ${file}`}
-                          className="artist-photo-circle-image"
-                        />
-                      </div>
-                    ))}
-              </div>
+              {/* Mobile: popup gallery com navegação */}
+              {window.innerWidth <= 600 ? (
+                artist.name === "Patricia Gea" ? (
+                  <TattooMobileGallery
+                    images={[1,2,3,4,5,6,7,8,9].map(num => `img/patricia/tattoo/${num}.webp`)}
+                  />
+                ) : (
+                  <TattooMobileGallery
+                    images={["1.webp","2.webp","5.webp","8.webp","9.webp","11.webp","12.webp","20.webp","IMG_2679.webp"].map(file => `img/rolando/tattoo/${file}`)}
+                  />
+                )
+              ) : (
+                <div className="artist-photo-grid" style={{ marginTop: '10px' }}>
+                  {artist.name === "Patricia Gea"
+                    ? [1,2,3,4,5,6,7,8,9].map((num) => (
+                        <div key={`patricia-tattoo-${num}`} className="artist-photo-circle" style={{cursor:'pointer'}} onClick={() => openTattooPopup(`img/patricia/tattoo/${num}.webp`)}>
+                          <img
+                            src={`img/patricia/tattoo/${num}.webp`}
+                            alt={`Patricia tattoo ${num}`}
+                            className="artist-photo-circle-image"
+                          />
+                        </div>
+                      ))
+                    : [
+                        "1.webp",
+                        "2.webp",
+                        "5.webp",
+                        "8.webp",
+                        "9.webp",
+                        "11.webp",
+                        "12.webp",
+                        "20.webp",
+                        "IMG_2679.webp"
+                      ].map((file) => (
+                        <div key={`rolando-tattoo-${file}`} className="artist-photo-circle" style={{cursor:'pointer'}} onClick={() => openTattooPopup(`img/rolando/tattoo/${file}`)}>
+                          <img
+                            src={`img/rolando/tattoo/${file}`}
+                            alt={`Rolando tattoo ${file}`}
+                            className="artist-photo-circle-image"
+                          />
+                        </div>
+                      ))}
+                </div>
+              )}
             </section>
           ))}
         </div>
