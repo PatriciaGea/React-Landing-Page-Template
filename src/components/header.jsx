@@ -8,6 +8,8 @@ export const Header = (props) => {
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 intro-text header-content-center">
+                {/* Espaço antes do conteúdo principal */}
+                <div style={{ height: 50 }} />
                 {props.data && props.data.title && props.data.title.includes("/") ? (
                   <img
                     src={props.data.title}
@@ -33,6 +35,8 @@ export const Header = (props) => {
                   <br /><br />Brännkyrkagatan 48, Södermalm Stockholm ( central area -
                   Mariatorget subway station)
                 </p>
+                {/* Espaço após todos os textos */}
+                <div style={{ height: 50 }} />
               </div>
             </div>
           </div>

@@ -57,7 +57,10 @@ export const About = (props) => {
   }, [total, imgHeight, speed]);
 
   return (
-    <div id="about">
+    <div
+      id="about"
+      style={{ paddingTop: 40, background: '#fff' }}
+    >
       <div className="container">
         <div className="row" style={isMobile ? { flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', margin: 0, padding: 0 } : {}}>
           {isMobile && (
