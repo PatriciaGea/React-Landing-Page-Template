@@ -144,14 +144,15 @@ export const Services = () => {
                   </p>
                 ) : null}
 
+
                 {artist.instagramLabel && artist.name === "Rolando Barrau" ? (
-                  <p className="artist-desc artist-handle-line">
+                  <p className="artist-desc artist-handle-line" style={{ marginBottom: 32 }}>
                     <a href={artist.instagramHandleUrl} target="_blank" rel="noreferrer" className="artist-link">
                       {artist.instagramLabel}
                     </a>
                   </p>
                 ) : artist.instagramLabel ? (
-                  <p className="artist-desc artist-handle-line">
+                  <p className="artist-desc artist-handle-line" style={{ marginBottom: 32 }}>
                     <a href={artist.instagramUrl} target="_blank" rel="noreferrer" className="artist-link">
                       {artist.instagramLabel}
                     </a>
@@ -159,7 +160,7 @@ export const Services = () => {
                 ) : null}
 
                 {artist.fineLineInstagramLabel ? (
-                  <p className="artist-desc artist-handle-line">
+                  <p className="artist-desc artist-handle-line" style={{ marginBottom: 32 }}>
                     <a href={artist.fineLineInstagramUrl} target="_blank" rel="noreferrer" className="artist-link">
                       {artist.fineLineInstagramLabel}
                     </a>
