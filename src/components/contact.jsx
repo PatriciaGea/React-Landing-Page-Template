@@ -49,7 +49,7 @@ export const Contact = (props) => {
                   </div>
                 </div>
               </div>
-              <form name="sentMessage" validate onSubmit={handleSubmit} encType="multipart/form-data" style={{ width: '100%' }}>
+              <form name="sentMessage" onSubmit={handleSubmit} encType="multipart/form-data" style={{ width: '100%' }}>
                 <div className="row" style={{ margin: 0 }}>
                   <div className="col-md-6" style={{ padding: 0 }}>
                     <div className="form-group">

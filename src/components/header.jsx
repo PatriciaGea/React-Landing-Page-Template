@@ -1,6 +1,9 @@
 import React from "react";
 
 export const Header = (props) => {
+  const isMobile = window.innerWidth <= 600;
+  const topSpace = isMobile ? 160 : 50;
+  const bottomSpace = isMobile ? 160 : 50;
   return (
     <header id="header">
       <div className="intro">
@@ -9,7 +12,7 @@ export const Header = (props) => {
             <div className="row">
               <div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 intro-text header-content-center">
                 {/* Espaço antes do conteúdo principal */}
-                <div style={{ height: 50 }} />
+                <div style={{ height: topSpace }} />
                 {props.data && props.data.title && props.data.title.includes("/") ? (
                   <img
                     src={props.data.title}
@@ -36,7 +39,7 @@ export const Header = (props) => {
                   Mariatorget subway station)
                 </p>
                 {/* Espaço após todos os textos */}
-                <div style={{ height: 50 }} />
+                <div style={{ height: bottomSpace }} />
               </div>
             </div>
           </div>
