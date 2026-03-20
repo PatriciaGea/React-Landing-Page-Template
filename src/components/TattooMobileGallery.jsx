@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 export const TattooMobileGallery = ({ images }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,12 +44,13 @@ export const TattooMobileGallery = ({ images }) => {
       </div>
       {isOpen && (
         <Lightbox
-          mainSrc={images[photoIndex]}
-          nextSrc={images[(photoIndex + 1) % images.length]}
-          prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-          onCloseRequest={() => setIsOpen(false)}
-          onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
-          onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
+          open={isOpen}
+          close={() => setIsOpen(false)}
+          index={photoIndex}
+          slides={images.map((src) => ({ src }))}
+          on={{
+            view: ({ index }) => setPhotoIndex(index)
+          }}
         />
       )}
     </div>
