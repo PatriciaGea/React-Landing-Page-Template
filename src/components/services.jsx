@@ -172,10 +172,12 @@ export const Services = () => {
                 artist.name === "Patricia Gea" ? (
                   <TattooMobileGallery
                     images={[1,2,3,4,5,6,7,8,9].map(num => `img/patricia/tattoo/${num}.webp`)}
+                    artistName="Patricia Gea"
                   />
                 ) : (
                   <TattooMobileGallery
                     images={["1.webp","2.webp","5.webp","8.webp","9.webp","11.webp","12.webp","20.webp","IMG_2679.webp"].map(file => `img/rolando/tattoo/${file}`)}
+                    artistName="Rolando Barrau"
                   />
                 )
               ) : (

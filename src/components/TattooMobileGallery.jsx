@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-export const TattooMobileGallery = ({ images }) => {
+
+export const TattooMobileGallery = ({ images, artistName }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
@@ -43,15 +44,34 @@ export const TattooMobileGallery = ({ images }) => {
         ))}
       </div>
       {isOpen && (
-        <Lightbox
-          open={isOpen}
-          close={() => setIsOpen(false)}
-          index={photoIndex}
-          slides={images.map((src) => ({ src }))}
-          on={{
-            view: ({ index }) => setPhotoIndex(index)
-          }}
-        />
+        <>
+          <Lightbox
+            open={isOpen}
+            close={() => setIsOpen(false)}
+            index={photoIndex}
+            slides={images.map((src) => ({ src }))}
+            on={{
+              view: ({ index }) => setPhotoIndex(index)
+            }}
+          />
+          {/* Nome do artista no canto inferior direito do popup */}
+          <div style={{
+            position: 'fixed',
+            bottom: 24,
+            right: 32,
+            zIndex: 9999,
+            color: '#fff',
+            background: 'rgba(0,0,0,0.5)',
+            padding: '6px 16px',
+            borderRadius: 12,
+            fontWeight: 600,
+            fontSize: 16,
+            pointerEvents: 'none',
+            fontFamily: 'inherit'
+          }}>
+            {artistName}
+          </div>
+        </>
       )}
     </div>
   );
