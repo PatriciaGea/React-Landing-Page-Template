@@ -59,7 +59,7 @@ export const TattooMobileGallery = ({ images, artistName }) => {
             position: 'fixed',
             bottom: 24,
             right: 32,
-            zIndex: 9999,
+            zIndex: 9999999,
             color: '#fff',
             background: 'rgba(0,0,0,0.5)',
             padding: '6px 16px',
@@ -67,7 +67,8 @@ export const TattooMobileGallery = ({ images, artistName }) => {
             fontWeight: 600,
             fontSize: 16,
             pointerEvents: 'none',
-            fontFamily: 'inherit'
+            fontFamily: 'inherit',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.25)'
           }}>
             {artistName}
           </div>
