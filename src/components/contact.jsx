@@ -9,27 +9,33 @@ const initialState = {
 };
 export const Contact = (props) => {
   const [{ name, email, message }, setState] = useState(initialState);
+  const [sent, setSent] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setState((prevState) => ({ ...prevState, [name]: value }));
   };
   const clearState = () => setState({ ...initialState });
-  
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, message);
-    
-    // replace below with your own Service ID, Template ID and Public Key from your EmailJS account
+    setSent(false);
+    // Configuração real do EmailJS
     emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
+      .sendForm(
+        "service_lvtwtq5",
+        "template_numero 1",
+        e.target,
+        "lSYA1UiyXNWAMUYvK"
+      )
       .then(
         (result) => {
-          console.log(result.text);
+          setSent(true);
           clearState();
         },
         (error) => {
+          setSent(false);
+          alert('Erro ao enviar mensagem. Tente novamente.');
           console.log(error.text);
         }
       );
@@ -92,21 +98,17 @@ export const Contact = (props) => {
                   ></textarea>
                   <p className="help-block text-danger"></p>
                 </div>
-                <div className="form-group">
-                  <label htmlFor="attachment">Attach your reference pictures</label>
-                  <input
-                    type="file"
-                    id="attachment"
-                    name="attachment"
-                    className="form-control"
-                    accept="image/*,application/pdf"
-                  />
-                </div>
+                {/* Campo de anexo removido conforme solicitado */}
                 <div id="success"></div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <button type="submit" className="btn btn-custom btn-lg">
                     Send Inquiry
                   </button>
+                  {sent && (
+                    <div style={{ color: '#7c4a1a', marginTop: 16, fontWeight: 500 }}>
+                      Thank you for your msg!
+                    </div>
+                  )}
                 </div>
               </form>
             </div>
