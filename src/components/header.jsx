@@ -2,8 +2,8 @@ import React from "react";
 
 export const Header = (props) => {
   const isMobile = window.innerWidth <= 600;
-  const topSpace = isMobile ? 160 : 50;
-  const bottomSpace = isMobile ? 160 : 50;
+  const topSpace = isMobile ? 100 : 50;
+  const bottomSpace = isMobile ? 100 : 50;
   return (
     <header id="header">
       <div className="intro">
